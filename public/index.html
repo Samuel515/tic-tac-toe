@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/images/icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body class="bg-gray-700">
+    <div class="p-10 h-screen text-white font-sourceCodePro">
+        <div class="xl:flex justify-between items-center h-10 xs:hidden">
+            <div id="faq">
+                <img src="../assets/images/question-mark.svg" alt="question-mark" class="cursor-pointer">
+            </div>
+            <div>
+                <button class="p-1 hover:border-2 border-gray-400 ease-in-out duration-100" id="clear">Clear Board</button>
+            </div>
+        </div>
+        <div class="flex justify-center items-center xl:h-5/6 xs:h-full">
+            <div class="flex w-full h-full xs:h-2/5">
+                <div class="flex justify-center items-center hidden" id="answerToFaq">
+                    <ol>
+                        <li class="text-blue-300 uppercase mb-5 xl:text-2xl">How to play</li>
+                        <li class=" mb-5"><b class="text-pink-300">Players:</b> Two players, one using X and the other using O.</li>
+                        <li class=" mb-5"><b class="text-pink-300">Turns:</b> Players take turns placing their mark in an empty cell.</li>
+                        <li class=" mb-5"><b class="text-pink-300">Winning Condition:</b> A player wins by being the first to place three of their marks in a row horizontally, vertically, or diagonally.</li>
+                        <li class=" mb-5"><b class="text-pink-300">Draw Condition:</b> If all cells are filled and neither player has three marks in a row, the game is a draw.</li>
+                        <li class=" mb-5"><b class="text-pink-300">Optimal Play:</b> The game can end in a win for one player or a draw if both players play optimally.</li>
+                    </ol>
+                </div>
+                <div class="flex justify-center items-center w-full flex-col">
+                    <div class="mb-16">
+                        <p class="text-3xl xs:text-xl" id="player"></p>
+                    </div>
+                    <div class="grid gap-0.5 bg-gray-500 grid-rows-row grid-cols-columns">
+                        <div class="boxes cell text"></div>
+                        <div class="cell boxes text"></div>
+                        <div class="cell boxes text"></div>
+                        <div class="cell boxes text"></div>
+                        <div class="cell boxes text"></div>
+                        <div class="cell boxes text"></div>
+                        <div class="cell boxes text"></div>
+                        <div class="cell boxes text"></div>
+                        <div class="cell boxes text"></div>
+                    </div>
+                    <button class="p-1 hover:border-2 border-gray-400 ease-in-out duration-100 xl:hidden xs:mt-16" id="clearBoard">Clear Board</button>
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <script>
+
+        //show faq
+        document.getElementById("faq").addEventListener("click", function(){
+            var answerToFaq = document.getElementById("answerToFaq");
+            answerToFaq.classList.toggle("hidden");
+        });
+
+        
+        //show currentplayer
+        const playerName = document.getElementById("player");
+        const players = {
+            "X": "Player One",
+            "O": "Player Two"
+        };
+        const grid = document.querySelector('.grid');
+
+        let currentPlayer = 'X';
+
+        function updatePlayerDisplay(){
+            playerName.textContent = players[currentPlayer];
+            if (playerName.textContent === "Player One"){
+                playerName.classList.add("text-pink-300");
+                playerName.classList.remove("text-blue-300");
+            }else{
+                playerName.classList.remove("text-pink-300");
+                playerName.classList.add("text-blue-300");
+            }
+        }
+        
+        // Check for winner
+        function checkWinner(player){
+            const cells = document.querySelectorAll('.cell');
+            const winningCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+            ];
+            return winningCombinations.some(combination => {
+                return combination.every(index => {
+                    return cells[index].textContent === player;
+                });
+            });
+        }
+
+        function checkDraw(){
+            const cells = document.querySelectorAll('.cell');
+            const allFilled = Array.from(cells).every(cell => cell.textContent !== '');
+
+            if (allFilled && !checkWinner('X') && !checkWinner('O')) {
+                playerName.textContent = "It's a draw🫱🏽‍🫲🏽";
+                grid.removeEventListener('click', handleCellClick);
+            }
+        };
+        
+        function handleCellClick(event){
+            const cell = event.target;
+            if (currentPlayer === "X"){
+                cell.classList.add("text-pink-300");
+            } else {
+                cell.classList.add("text-blue-300");
+            }
+
+            if (cell.classList.contains('cell') && cell.textContent === ''){
+                cell.textContent = currentPlayer;
+                if (checkWinner(currentPlayer)){
+                    playerName.textContent = `${players[currentPlayer]} wins! 🎉`;
+                    grid.removeEventListener('click', handleCellClick);
+                } else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+
+                    updatePlayerDisplay();
+                    checkDraw();
+                }   
+            }
+        };
+        
+        grid.addEventListener('click', handleCellClick);
+        
+        // Clear the board and reset game
+        document.getElementById("clear").addEventListener("click", function(){
+            const cells = document.querySelectorAll(".cell");
+            cells.forEach(element => {
+                element.textContent = "";
+                element.classList.remove("text-blue-300");
+                element.classList.remove("text-pink-300");
+            });
+
+            currentPlayer = "X";
+
+            updatePlayerDisplay();
+
+            grid.addEventListener('click', handleCellClick);
+        });
+
+
+        document.getElementById("clearBoard").addEventListener("click", function(){
+            const cells = document.querySelectorAll(".cell");
+            cells.forEach(element => {
+                element.textContent = "";
+                element.classList.remove("text-blue-300");
+                element.classList.remove("text-pink-300");
+            });
+
+            currentPlayer = "X";
+
+            updatePlayerDisplay();
+
+            grid.addEventListener('click', handleCellClick);
+        });
+        
+        updatePlayerDisplay();
+
+    </script>
+</body>
+</html>
