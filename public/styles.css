@@ -662,14 +662,9 @@ video {
   font-family: Source Code Pro, cursive;
 }
 
-.text-2xl{
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-3xl{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .uppercase{
@@ -703,75 +698,41 @@ video {
   border-width: 2px;
 }
 
-@media (min-width: 100px){
-  .xs\:mt-10{
-    margin-top: 2.5rem;
-  }
+.hover\:bg-gray-600:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
 
+.hover\:bg-gray-700:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-900:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-gray-800:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+@media (min-width: 100px){
   .xs\:mt-16{
     margin-top: 4rem;
-  }
-
-  .xs\:flex{
-    display: flex;
-  }
-
-  .xs\:grid{
-    display: grid;
   }
 
   .xs\:hidden{
     display: none;
   }
 
-  .xs\:h-full{
-    height: 100%;
-  }
-
-  .xs\:h-96{
-    height: 24rem;
-  }
-
-  .xs\:h-px{
-    height: 1px;
-  }
-
   .xs\:h-2\/5{
     height: 40%;
   }
 
-  .xs\:flex-row{
-    flex-direction: row;
-  }
-
-  .xs\:flex-col{
-    flex-direction: column;
-  }
-
-  .xs\:bg-red-600{
-    --tw-bg-opacity: 1;
-    background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-  }
-
-  .xs\:text-xl{
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .xs\:text-lg{
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-}
-
-@media (min-width: 640px){
-  .sm\:h-full{
+  .xs\:h-full{
     height: 100%;
-  }
-
-  .sm\:bg-red-600{
-    --tw-bg-opacity: 1;
-    background-color: rgb(220 38 38 / var(--tw-bg-opacity));
   }
 }
 
@@ -780,20 +741,12 @@ video {
     display: flex;
   }
 
-  .xl\:contents{
-    display: contents;
-  }
-
   .xl\:hidden{
     display: none;
   }
 
   .xl\:h-5\/6{
     height: 83.333333%;
-  }
-
-  .xl\:w-full{
-    width: 100%;
   }
 
   .xl\:text-2xl{
