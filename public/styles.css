@@ -602,6 +602,10 @@ video {
   margin-right: 2rem;
 }
 
+.mt-16{
+  margin-top: 4rem;
+}
+
 .flex{
   display: flex;
 }

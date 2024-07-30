@@ -18,12 +18,7 @@ function clearCells() {
 }
 
 // Reset game and add event listener for "clear" button
-document.getElementById("clear").addEventListener("click", clearCells);
-
-// Check if "clearBoard" exists and add event listener
-if (document.getElementById("clearBoard")) {
-    document.getElementById("clearBoard").addEventListener("click", clearCells);
-}
+document.getElementById("clearBoard").addEventListener("click", clearCells);
 
 // Change mode colors
 const twoPlayers = document.getElementById("twoPlayers");
