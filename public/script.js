@@ -64,9 +64,9 @@ easyGame.addEventListener("click", function() {
 
 // Small screens
 
-const twoP = document.getElementById("twoPlayers");
-const easyG = document.getElementById("easyGame");
-const hardG = document.getElementById("hardGame");
+const twoP = document.getElementById("twoP");
+const easyG = document.getElementById("easyG");
+const hardG = document.getElementById("hardG");
 
 // Switch to 2-player mode
 twoP.addEventListener("click", function() {
@@ -172,7 +172,7 @@ function checkDraw() {
 // Handle cell click based on game mode
 function handleCellClick(event) {
     const cell = event.target;
-    
+
     if (currentPlayer === "X") {
         cell.classList.add("text-pink-300");
     }else{
