@@ -4,6 +4,9 @@
     .boxes {
         @apply bg-gray-700 flex items-center justify-center cursor-pointer text-2xl;
       }
+      .buttonsStyle{
+        @apply p-1 border-2 border-gray-700 ease-in-out duration-500 bg-gray-700;
+      }
 }
 
 @tailwind base;

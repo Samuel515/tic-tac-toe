@@ -567,12 +567,39 @@ video {
   line-height: 2rem;
 }
 
+.buttonsStyle{
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  padding: 0.25rem;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .mb-16{
   margin-bottom: 4rem;
 }
 
 .mb-5{
   margin-bottom: 1.25rem;
+}
+
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
+.mb-20{
+  margin-bottom: 5rem;
+}
+
+.mr-5{
+  margin-right: 1.25rem;
+}
+
+.mr-8{
+  margin-right: 2rem;
 }
 
 .flex{
@@ -607,6 +634,10 @@ video {
   cursor: pointer;
 }
 
+.grid-cols-4{
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .grid-cols-columns{
   grid-template-columns: repeat(3 , 100px);
 }
@@ -635,6 +666,10 @@ video {
   gap: 0.125rem;
 }
 
+.gap-2{
+  gap: 0.5rem;
+}
+
 .border-gray-400{
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
@@ -656,6 +691,10 @@ video {
 
 .p-10{
   padding: 2.5rem;
+}
+
+.pt-0{
+  padding-top: 0px;
 }
 
 .font-sourceCodePro{
@@ -686,6 +725,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .duration-100{
   transition-duration: 100ms;
 }
@@ -698,29 +741,27 @@ video {
   border-width: 2px;
 }
 
+.hover\:border-gray-400:hover{
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+
 .hover\:bg-gray-600:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-gray-700:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-900:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-gray-800:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+.hover\:underline:hover{
+  text-decoration-line: underline;
 }
 
 @media (min-width: 100px){
   .xs\:mt-16{
     margin-top: 4rem;
+  }
+
+  .xs\:flex{
+    display: flex;
   }
 
   .xs\:hidden{
@@ -733,6 +774,24 @@ video {
 
   .xs\:h-full{
     height: 100%;
+  }
+
+  .xs\:items-center{
+    align-items: center;
+  }
+
+  .xs\:justify-center{
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px){
+  .lg\:contents{
+    display: contents;
+  }
+
+  .lg\:hidden{
+    display: none;
   }
 }
 
